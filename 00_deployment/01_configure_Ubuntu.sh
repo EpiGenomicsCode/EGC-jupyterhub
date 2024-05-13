@@ -7,7 +7,7 @@ adduser wkl29
 usermod -aG sudo wkl29
 
 # Allow for password entry during SSH
-sed -i.bak 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sed -i.bak 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config.d/60-cloudimg-settings.conf
 
 # Restart system for SSH changes to take effect
 systemctl restart sshd

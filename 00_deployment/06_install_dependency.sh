@@ -1,8 +1,13 @@
-# Install python dependency
+# Commands run from within an admin terminal within the JupyterHub
+
+## Install python dependency
 sudo -E pip install numpy==1.25.2
 sudo -E pip install matplotlib==3.7.2
 sudo -E pip install scipy==1.11.1
 
+sudo -E pip install pandas
+sudo -E pip install scikit-learn
+sudo -E pip install seaborn
 
 ## From within an admin terminal within the JupyterHub
 # sudo R
@@ -41,9 +46,3 @@ sudo ln -s /srv/data/gwas_data gwas_data
 
 # Otherwise each student can run this locally
 ln -s /srv/data/gwas_data gwas_data
-
-sudo -E pip install pandas
-
-#Amy
-sudo -E pip install scikit-learn
-sudo -E pip install seaborn
