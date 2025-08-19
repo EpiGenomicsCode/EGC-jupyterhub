@@ -1,0 +1,26 @@
+As a sudo-user, add the python code below to:
+/opt/tljh/config/jupyterhub_config.d
+
+Named:
+cilogon.py
+
+# Configuration file for TLJH
+c = get_config()
+c.JupyterHub.authenticator_class = "cilogon"
+c.OAuthenticator.oauth_callback_url = "https://<HOSTNAME>/hub/oauth_callback"
+c.OAuthenticator.client_id = "cilogon:/client_id/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+c.OAuthenticator.client_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+c.CILogonOAuthenticator.allow_existing_users = True
+
+c.CILogonOAuthenticator.allowed_idps = {
+    "https://shibidp.cit.cornell.edu/idp/shibboleth": {
+        "username_derivation": {
+            "username_claim": "email",
+            "action": "strip_idp_domain",
+            "domain": "cornell.edu",
+        },
+        "default": True,
+    }
+}
+
+c.Authenticator.admin_users = ["admin","wkl29"]
